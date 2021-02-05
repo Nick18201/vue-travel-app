@@ -11,14 +11,15 @@ const routes = [
     component: Home
   },
   {
-    path: "/details/:id",
+    path: "/details/:slug",
     name: "DestinationDetails",
     component: () =>
       import(
         /* webpackChunkName: "DestinationDetails" */ "../views/DestinationDetails.vue"
       )
   }
-  // we add /:id that we implement back in data() of DestinationDetails.vue
+  // we add to details path a /:id that we implement back in data() of DestinationDetails.vue
+  // as we want to show the destination name we can change to slug
 ];
 
 const router = new VueRouter({

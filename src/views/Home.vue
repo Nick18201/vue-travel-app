@@ -4,7 +4,10 @@
     <div class="destinations">
       <div v-for="destination in destinations" :key="destination.name">
         <router-link
-          :to="{ name: 'DestinationDetails', params: { id: destination.id } }"
+          :to="{
+            name: 'DestinationDetails',
+            params: { slug: destination.slug }
+          }"
         >
           <!-- named routes allow to connect directly to the route without
           knowing the path, then we pass a params to connect the route with
@@ -14,10 +17,14 @@
         </router-link>
         <figure>
           <router-link
-            :to="{ name: 'DestinationDetails', params: { id: destination.id } }"
+            :to="{
+              name: 'DestinationDetails',
+              params: { slug: destination.slug }
+            }"
           >
             <!-- we add th id with params: to show the correct details
           depending of the destination id  -->
+            <!-- as we changed the DestinationDetails to slug we change from id to slug here too -->
             <img
               :src="require(`@/assets/${destination.image}`)"
               alt="destination.name"

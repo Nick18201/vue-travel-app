@@ -20,16 +20,21 @@ export default {
   // we need to retrieve the value from the params of the destination.id
   data() {
     return {
-      destinationId: this.$route.params.id
-      // destinationId: Number(this.$route.param.id)
+      // destinationId: this.$route.params.id
+      // if we want to show the slug aka the name of the destination
+      // we might make some change to :
+      slug: this.$route.params.slug
     };
   },
   // We need computed properties to define data but with some custom logic
   computed: {
     destination() {
       return store.destinations.find(
-        destination => destination.id == this.destinationId
-        // this allow to check if id of the destination is equal to the one we get in the params
+        destination => destination.slug == this.slug
+        // this allow to check if id of the destination is equal to the one we
+        // get in the params. But as we further continue we change it to slug to
+        // match the destination name from the data and the path in index.js
+        // we finish by going to home to change the params from id to slug too
       );
     }
   }

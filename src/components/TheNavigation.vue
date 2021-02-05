@@ -11,10 +11,12 @@
         <router-link
           :to="{
             name: 'DestinationDetails',
-            params: { id: destination.id }
+            params: { slug: destination.slug }
           }"
           >{{ destination.name }}</router-link
         >
+        <!-- the slug comes from the change in DestinationDetails from id to
+        slug to show the destination name instead of it's id -->
       </li>
     </ul>
   </nav>
@@ -25,7 +27,6 @@ import store from "@/store.js";
 export default {
   data() {
     return {
-      destinationId: this.$route.params.id,
       destinations: store.destinations
     };
   }
