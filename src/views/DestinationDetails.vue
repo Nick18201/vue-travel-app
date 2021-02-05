@@ -21,13 +21,25 @@
           :key="experience.slug"
           class="card"
         >
-          <img
-            :src="require(`@/assets/${experience.image}`)"
-            :alt="experience.name"
-          />
-          <span class="card_text"> {{ experience.name }}</span>
+          <!-- let's add a router link -->
+          <router-link
+            :to="{
+              name: 'experienceDetails',
+              params: { experienceSlug: experience.slug }
+            }"
+          >
+            <img
+              :src="require(`@/assets/${experience.image}`)"
+              :alt="experience.name"
+            />
+            <span class="card__text">
+              {{ experience.name }}
+            </span>
+          </router-link>
         </div>
       </div>
+      <router-view :key="$route.path" />
+      <!--  After we might set the child route into index.js -->
     </section>
   </div>
 </template>
@@ -74,6 +86,9 @@ img {
   width: 100%;
   max-height: 400px;
 }
+.experiences {
+  padding: 40px 0;
+}
 .destination-details {
   display: flex;
   justify-content: space-between;
@@ -83,6 +98,10 @@ p {
   font-size: 20px;
   text-align: left;
 }
+.cards {
+  display: flex;
+  justify-content: space-between;
+}
 .cards img {
   max-height: 200px;
 }
@@ -90,7 +109,7 @@ p {
   padding: 0 20px;
   position: relative;
 }
-.card_text {
+.card__text {
   position: absolute;
   top: 50%;
   left: 50%;

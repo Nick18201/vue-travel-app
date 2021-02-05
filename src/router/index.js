@@ -12,13 +12,24 @@ const routes = [
     props: true
   },
   {
-    path: "/details/:slug",
+    path: "/destination/:slug",
     name: "DestinationDetails",
     props: true,
     component: () =>
       import(
-        /* webpackChunkName: "DestinationDetails" */ "../views/DestinationDetails.vue"
-      )
+        /* webpackChunkName: "DestinationDetails" */ "@/views/DestinationDetails.vue"
+      ),
+    children: [
+      {
+        path: ":experienceSlug",
+        name: "experienceDetails",
+        props: true,
+        component: () =>
+          import(
+            /*webpackChunkName: "ExperienceDetails"*/ "@/views/ExperienceDetails"
+          )
+      }
+    ]
   }
   // we add to details path a /:id that we implement back in data() of DestinationDetails.vue
   // as we want to show the destination name we can change to slug
