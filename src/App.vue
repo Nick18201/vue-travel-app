@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <TheNavigation></TheNavigation>
-    <router-view />
+    <router-view :key="$route.path" />
+    <!-- the key is to tell the router to reload the DestinationDetails
+    accordingly to the change of the route. Otherwise the component is not
+    loaded when we change the route -->
   </div>
 </template>
 
