@@ -44,13 +44,14 @@ const routes = [
       import(/* webpackChunkName: "panama" */ "../views/Panama.vue")
   },
   {
-    path: "/details",
+    path: "/details/:id",
     name: "DestinationDetails",
     component: () =>
       import(
         /* webpackChunkName: "DestinationDetails" */ "../views/DestinationDetails.vue"
       )
   }
+  // we add /:id that we implement back in data() of DestinationDetails.vue
 ];
 
 const router = new VueRouter({

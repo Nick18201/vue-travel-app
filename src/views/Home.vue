@@ -16,6 +16,8 @@
           <router-link
             :to="{ name: 'DestinationDetails', params: { id: destination.id } }"
           >
+            <!-- we add th id with params: to show the correct details
+          depending of the destination id  -->
             <img
               :src="require(`@/assets/${destination.image}`)"
               alt="destination.name"
