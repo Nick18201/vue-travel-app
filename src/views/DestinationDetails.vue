@@ -23,8 +23,16 @@ export default {
       // destinationId: this.$route.params.id
       // if we want to show the slug aka the name of the destination
       // we might make some change to :
-      slug: this.$route.params.slug
+      // slug: this.$route.params.slug
+      // we can finally delete this line because we implement props
     };
+  },
+  // we set the props from the index.js
+  props: {
+    slug: {
+      type: String,
+      required: true
+    }
   },
   // We need computed properties to define data but with some custom logic
   computed: {

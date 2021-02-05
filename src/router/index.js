@@ -8,11 +8,13 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home
+    component: Home,
+    props: true
   },
   {
     path: "/details/:slug",
     name: "DestinationDetails",
+    props: true,
     component: () =>
       import(
         /* webpackChunkName: "DestinationDetails" */ "../views/DestinationDetails.vue"
@@ -23,6 +25,8 @@ const routes = [
 ];
 
 const router = new VueRouter({
+  mode: "history",
+  // mode history removes the # that simulate the full url
   linkExactActiveClass: "active-class",
   // allow router to custom class name for automatic active class
   // so when you have an active tab the css class switch to the desired class
